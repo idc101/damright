@@ -1,0 +1,36 @@
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 52px;
+  background-color: #1e1e1e;
+  border-top: 1px solid #333;
+  flex-shrink: 0;
+  width: 100%;
+  z-index: 1000;
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 6px);
+  box-sizing: content-box;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #8e8e93;
+  font-size: 10px;
+  flex: 1;
+  gap: 4px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.nav-item.active {
+  color: #007aff;
+}
+
+.nav-item span {
+  font-weight: 500;
+}

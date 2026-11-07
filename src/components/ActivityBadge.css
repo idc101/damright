@@ -1,0 +1,49 @@
+.activity-badge-button {
+  background: none;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 4px 10px;
+  color: #e0e0e0;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  height: 28px;
+}
+
+.activity-badge-button:hover {
+  background-color: #2a2a2a;
+  border-color: #555;
+  color: #fff;
+}
+
+.activity-badge-button.active {
+  border-color: #2196f3;
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #64b5f6;
+}
+
+.activity-badge-pct {
+  font-weight: 600;
+  font-size: 11px;
+  background: rgba(33, 150, 243, 0.25);
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: #90caf9;
+}
+
+.activity-badge-idle {
+  color: #81c784;
+}
+
+.activity-badge-icon-spin {
+  animation: activityBadgeSpin 1.2s linear infinite;
+}
+
+@keyframes activityBadgeSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

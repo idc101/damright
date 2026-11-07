@@ -1,0 +1,205 @@
+.filmstrip-container {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+  overflow: hidden;
+  position: relative;
+  min-width: 0;
+}
+
+.filmstrip-large-view {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.filmstrip-large-view img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+
+.large-view-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: #666;
+}
+
+.large-view-placeholder-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-preview {
+  filter: blur(1px);
+  transition: filter 0.15s ease-out;
+}
+
+.large-view-loading-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 12px;
+  border-radius: 50%;
+  color: #fff;
+  pointer-events: none;
+  animation: fadeInOverlay 0.25s ease-in;
+}
+
+@keyframes fadeInOverlay {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.filmstrip-controls {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 100;
+}
+
+.control-btn {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #444;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.control-btn:hover {
+  background: rgba(100, 108, 255, 0.8);
+  border-color: #646cff;
+}
+
+.filmstrip-bottom-bar {
+  height: 120px;
+  background-color: #1a1a1a;
+  border-top: 1px solid #333;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  min-width: 0;
+}
+
+.filmstrip-thumb {
+  height: 100%;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+  position: relative;
+}
+
+.filmstrip-thumb:hover {
+  border-color: #444;
+}
+
+.filmstrip-thumb.selected {
+  background-color: rgba(100, 108, 255, 0.3);
+}
+
+.filmstrip-thumb.active {
+  border-color: #646cff;
+  box-shadow: 0 0 0 2px #646cff;
+}
+
+.filmstrip-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.filmstrip-thumb .rating-overlay {
+  bottom: 2px;
+  left: 2px;
+  padding: 1px 2px;
+  gap: 1px;
+}
+
+.filmstrip-thumb .rating-overlay .star-icon {
+  width: 8px;
+  height: 8px;
+}
+
+.filmstrip-thumb.rejected img {
+  filter: grayscale(1) opacity(0.3);
+}
+
+.filmstrip-thumb.rejected .rejected-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  color: #ff4444;
+  font-weight: bold;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  border: 1px solid #ff4444;
+  padding: 1px 4px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .filmstrip-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+  }
+
+  .filmstrip-large-view {
+    padding: 0;
+  }
+
+  .filmstrip-controls {
+    top: max(1rem, env(safe-area-inset-top));
+    right: 1rem;
+  }
+
+  .control-btn.close-btn {
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    border: none;
+  }
+}

@@ -1,0 +1,61 @@
+.tag-pills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 0.5rem;
+}
+
+.tag-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #2a2a2a;
+  color: #ccc;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 0.8rem;
+  border: 1px solid #444;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.tag-pill.clickable {
+  cursor: pointer;
+}
+
+.tag-pill.clickable:hover {
+  border-color: #646cff;
+  color: #fff;
+}
+
+.tag-pill .tag-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #666;
+  cursor: pointer;
+}
+
+.tag-pill .tag-remove:hover {
+  color: #ff4444;
+}
+
+.tag-pill.partial {
+  border-style: dashed;
+  border-color: #777;
+  color: #aaa;
+}
+
+.tag-pill.partial:hover {
+  border-color: #646cff;
+}
+
+.partial-indicator {
+  font-size: 0.72rem;
+  color: #888;
+  font-style: italic;
+  margin-left: 2px;
+}

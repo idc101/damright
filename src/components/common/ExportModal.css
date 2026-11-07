@@ -1,0 +1,252 @@
+.export-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.export-modal {
+  background: var(--bg-surface, #1e1e24);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.12));
+  border-radius: 12px;
+  width: 460px;
+  max-width: 90vw;
+  padding: 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  color: var(--text-color, #f0f0f5);
+  font-family: inherit;
+}
+
+.export-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.export-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.export-modal-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted, #888);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.export-modal-close-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.export-modal-section {
+  margin-bottom: 20px;
+}
+
+.export-modal-section label.section-title {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted, #aaa);
+  margin-bottom: 8px;
+}
+
+.export-folder-picker {
+  display: flex;
+  gap: 8px;
+}
+
+.export-folder-input {
+  flex: 1;
+  background: var(--bg-input, rgba(255, 255, 255, 0.06));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.export-folder-browse-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: #fff;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s ease;
+}
+
+.export-folder-browse-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.export-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.export-radio-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.export-radio-option:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.export-radio-option.selected {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.export-radio-option input[type="radio"] {
+  margin-top: 3px;
+  accent-color: #3b82f6;
+}
+
+.export-radio-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.export-radio-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.export-radio-desc {
+  font-size: 12px;
+  color: var(--text-muted, #888);
+  margin-top: 2px;
+}
+
+.export-sub-options {
+  margin-top: 12px;
+  padding-left: 12px;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.export-slider-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.export-slider-row label {
+  font-size: 13px;
+  color: #ddd;
+}
+
+.export-slider-row input[type="range"] {
+  flex: 1;
+  accent-color: #3b82f6;
+}
+
+.export-slider-value {
+  font-size: 13px;
+  font-weight: 600;
+  width: 40px;
+  text-align: right;
+  color: #3b82f6;
+}
+
+.export-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.export-checkbox-row input[type="checkbox"] {
+  accent-color: #3b82f6;
+}
+
+.export-dimension-input {
+  width: 90px;
+  background: var(--bg-input, rgba(255, 255, 255, 0.06));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+}
+
+.export-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.export-cancel-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: #ddd;
+  padding: 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.export-cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.export-submit-btn {
+  background: #3b82f6;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.export-submit-btn:hover {
+  background: #2563eb;
+}
+
+.export-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

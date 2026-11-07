@@ -1,0 +1,213 @@
+/* Fullscreen Photo Lightbox */
+.web-viewer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.web-viewer-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: max(env(safe-area-inset-top, 0px), 16px) 16px 16px 16px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.web-viewer-close {
+  background: rgba(30, 30, 30, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s;
+}
+
+.web-viewer-close:active {
+  background: rgba(60, 60, 60, 0.85);
+}
+
+.web-viewer-info-trigger {
+  background: rgba(30, 30, 30, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.15s;
+}
+
+.web-viewer-info-trigger:active {
+  background: rgba(60, 60, 60, 0.85);
+}
+
+.web-viewer-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.web-viewer-media {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  user-select: none;
+}
+
+.web-viewer-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: white;
+  padding: 16px 8px;
+  cursor: pointer;
+  display: none;
+  transition: background-color 0.15s;
+}
+
+.web-viewer-nav:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+@media (min-width: 768px) {
+  .web-viewer-nav {
+    display: block;
+  }
+}
+
+.web-viewer-nav-left {
+  left: 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.web-viewer-nav-right {
+  right: 0;
+  border-radius: 8px 0 0 8px;
+}
+
+/* Sliding info drawer */
+.web-info-drawer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: var(--bg-secondary, #1e1e1e);
+  border-top: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));
+  border-radius: 20px 20px 0 0;
+  max-height: 60vh;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 20px;
+  padding-bottom: calc(20px + max(env(safe-area-inset-bottom, 0px), 16px));
+}
+
+.web-info-drawer.open {
+  transform: translateY(0);
+}
+
+.web-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));
+  padding-bottom: 12px;
+}
+
+.web-info-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: var(--text-primary, #ffffff);
+}
+
+.web-info-filename {
+  font-size: 0.8rem;
+  color: var(--text-muted, #888888);
+  word-break: break-all;
+}
+
+.web-info-rating {
+  display: flex;
+  gap: 2px;
+  color: #eab308;
+  margin-bottom: 16px;
+}
+
+.web-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.web-info-item label {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-muted, #888888);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.web-info-item span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary, #ffffff);
+}
+
+.web-info-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.web-info-tag {
+  background-color: var(--bg-tertiary, #2a2a2a);
+  color: var(--text-secondary, #cccccc);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: default;
+  transition: background-color 0.15s;
+}
+
+.web-info-tag.clickable {
+  cursor: pointer;
+}
+
+.web-info-tag.clickable:hover {
+  background-color: var(--accent-color, #3b82f6);
+  color: white;
+}

@@ -1,0 +1,76 @@
+[package]
+name = "damright"
+version = "0.1.0"
+description = "High-performance offline-first Personal Digital Asset Manager (DAM)"
+authors = ["Iain Cardnell <idc101@users.noreply.github.com>"]
+license = "MIT"
+edition = "2021"
+default-run = "damright"
+
+[[bin]]
+name = "damright"
+path = "src/main.rs"
+
+[[bin]]
+name = "damright-server"
+path = "src/bin/damright-server.rs"
+
+[[bin]]
+name = "damright-cli"
+path = "src/bin/damright-cli.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "damright_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["protocol-asset", "test"] }
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+image = "0.25.10"
+fast_image_resize = { version = "6.0.0", features = ["image"] }
+rayon = "1.12.0"
+walkdir = "2.5.0"
+rusqlite = { version = "0.39.0", features = ["bundled"] }
+chrono = "0.4.44"
+uuid = { version = "1.23.1", features = ["v4"] }
+anyhow = "1.0.102"
+tauri-plugin-dialog = "2.7.1"
+kamadak-exif = "0.6.1"
+tauri-plugin-window-state = "2.2.0"
+nom-exif = "3.4.1"
+heic = { version = "0.1.6", features = ["parallel"] }
+regex = "1.12.3"
+filetime = "0.2.23"
+blake3 = { version = "1.5.0", features = ["pure"] }
+image_hasher = "3.1.1"
+axum = { version = "0.7", features = ["macros"] }
+tower = { version = "0.5", features = ["util"] }
+tower-http = { version = "0.5", features = ["fs", "cors"] }
+tokio = { version = "1", features = ["full"] }
+mime_guess = "2.0"
+dirs = "5.0"
+reqwest = { version = "0.12", default-features = false, features = ["json", "stream", "rustls-tls"] }
+sha2 = "0.10"
+hmac = "0.12"
+tokio-util = { version = "0.7", features = ["io"] }
+futures-util = "0.3"
+rand = "0.8"
+
+
+[dev-dependencies]
+tempfile = "3.27.0"
+tokio = { version = "1", features = ["test-util", "macros"] }
+
+[profile.dev.package."*"]
+opt-level = 3
+

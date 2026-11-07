@@ -1,0 +1,298 @@
+.activity-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(6px);
+}
+
+.activity-dialog-modal {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 580px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+  color: #e0e0e0;
+  font-family: inherit;
+  overflow: hidden;
+}
+
+.activity-dialog-header {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #252525;
+}
+
+.activity-dialog-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.activity-dialog-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.activity-summary-badge {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.activity-summary-badge.active {
+  background-color: rgba(33, 150, 243, 0.2);
+  color: #64b5f6;
+  border: 1px solid rgba(33, 150, 243, 0.4);
+}
+
+.activity-summary-badge.idle {
+  background-color: rgba(129, 199, 132, 0.15);
+  color: #81c784;
+  border: 1px solid rgba(129, 199, 132, 0.3);
+}
+
+.activity-dialog-close {
+  background: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.activity-dialog-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.activity-dialog-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.overall-progress-card {
+  background-color: #252526;
+  border: 1px solid #383838;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.overall-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.overall-progress-bar-container {
+  width: 100%;
+  height: 10px;
+  background-color: #141414;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.overall-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2196f3, #646cff);
+  transition: width 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.overall-progress-bar.indeterminate {
+  width: 100% !important;
+  background: linear-gradient(90deg, #2196f3, #646cff, #2196f3);
+  background-size: 200% 100%;
+  animation: indeterminateShimmer 1.5s infinite linear;
+}
+
+@keyframes indeterminateShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.activity-tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.activity-task-card {
+  background-color: #252526;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: border-color 0.2s ease;
+}
+
+.activity-task-card.active {
+  border-color: #2196f3;
+}
+
+.activity-task-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.activity-task-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #f0f0f0;
+}
+
+.activity-task-status-pill {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.activity-task-status-pill.active {
+  background-color: rgba(33, 150, 243, 0.2);
+  color: #64b5f6;
+}
+
+.activity-task-status-pill.pending {
+  background-color: rgba(255, 183, 77, 0.2);
+  color: #ffb74d;
+}
+
+.activity-task-status-pill.success {
+  background-color: rgba(129, 199, 132, 0.2);
+  color: #81c784;
+}
+
+.activity-task-status-pill.idle {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #888;
+}
+
+.activity-task-status-pill.error {
+  background-color: rgba(229, 115, 115, 0.2);
+  color: #e57373;
+}
+
+.activity-task-message {
+  font-size: 0.82rem;
+  color: #aaa;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.activity-task-progress-bar-container {
+  width: 100%;
+  height: 6px;
+  background-color: #181818;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.activity-task-progress-bar {
+  height: 100%;
+  background-color: #2196f3;
+  transition: width 0.25s ease-in-out;
+  border-radius: 3px;
+}
+
+.activity-task-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.activity-btn {
+  background-color: #333;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 4px 10px;
+  color: #e0e0e0;
+  font-size: 0.78rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background-color 0.15s ease;
+}
+
+.activity-btn:hover:not(:disabled) {
+  background-color: #444;
+  color: #fff;
+}
+
+.activity-btn.primary {
+  background-color: #2196f3;
+  border-color: #2196f3;
+  color: #fff;
+}
+
+.activity-btn.primary:hover:not(:disabled) {
+  background-color: #1976d2;
+}
+
+.activity-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.activity-dialog-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #252525;
+}
+
+.activity-spin-icon {
+  animation: activitySpin 1.2s linear infinite;
+}
+
+@keyframes activitySpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

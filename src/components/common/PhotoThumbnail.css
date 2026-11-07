@@ -1,0 +1,141 @@
+.thumb-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  border-radius: 4px;
+  position: relative;
+}
+
+.rating-overlay {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  display: flex;
+  gap: 2px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2px 4px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.rating-overlay .star-icon {
+  color: #ffb400;
+  fill: #ffb400;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rejected-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  color: #ff4444;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  border: 4px solid #ff4444;
+  padding: 4px 12px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.quick-collection-overlay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 3px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* Markdown Document Card Thumbnail */
+.markdown-thumb-card {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 12px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  overflow: hidden;
+  user-select: none;
+}
+
+.markdown-thumb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.markdown-thumb-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.markdown-thumb-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f1f5f9;
+  line-height: 1.3;
+  margin-bottom: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.markdown-thumb-desc {
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.filmstrip .markdown-thumb-card {
+  padding: 6px;
+}
+
+.filmstrip .markdown-thumb-title {
+  font-size: 10px;
+  -webkit-line-clamp: 1;
+}
+
+.filmstrip .markdown-thumb-desc {
+  display: none;
+}
